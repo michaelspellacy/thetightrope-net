@@ -1,0 +1,332 @@
+/*
+	The Tightrope : The Stylesheet
+	Developer: Michael "Spell" Spellacy, Director, User Interface Development, michael.spellacy[at]tmp.com, @spellacy
+*/
+
+// Some useful variables 
+
+$text-offscreen: -999em;
+$base-font: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+
+@import "mixins/compass/css3"; 
+@import "normalize"; 
+
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+/* ====== Page Layout and Common Element Properties ====== */
+
+@import "normalize";
+
+/* ====== Common Reset ====== */
+
+html, body {
+min-height: 100%;
+}
+
+html {
+overflow-y: scroll;
+}
+
+/* ====== Global ====== */
+
+body {
+background-color: rgb(246,250,156);
+@include filter-gradient(#f6fa9c, #fefcea, vertical);
+@include background-image(linear-gradient(top,  rgba(246,250,156,1) 0%,rgba(254,252,234,1) 59%));
+@include transition(all .5s ease-in-out);
+}
+
+a {
+
+	&:link {
+	color: rgb(246, 250, 156);
+	@include transition(all .1s linear);
+	}
+
+	&:visited {
+	color: rgb(140, 169, 62);
+	text-decoration: none;
+	}
+
+	&:hover, &:focus {
+	color: rgb(140, 169, 62);
+	text-decoration: none;
+	}
+
+	&:active {
+	color: rgb(111, 5, 100);
+	text-decoration: none;
+	}
+
+	&.external {
+	padding-right: 14px;
+	background: url(data:image/gif;base64,R0lGODlhCgAKAJECAP///5mZmQAAAAAAACH5BAEAAAIALAAAAAAKAAoAAAIalIMZJgH/1gGJqugQpFzH7TlWJVJMGZ0KwhQAOw==)center right no-repeat;
+
+		&:hover, &:focus {
+		background: url(data:image/gif;base64,R0lGODlhCgAKAJECAP///2eIpAAAAAAAACH5BAEAAAIALAAAAAAKAAoAAAIalIMZJgH/1gGJqugQpFzH7TlWJVJMGZ0KwhQAOw==)center right no-repeat;
+		}
+
+	}
+
+}
+
+/* Common Media Properties */
+
+img, audio {
+display: block;
+max-width: 100%;
+border: 0;
+outline: 0;
+}
+
+audio {
+margin-bottom: 1em;
+border-radius: 6px;
+}
+
+/* Used to accessibly hide elements (display: none may cause issues with screen readers) */
+
+.wai {
+position: absolute;
+top: 0;
+left: 0;
+width: 0;
+height: 0;
+text-indent: $text-offscreen;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: Lobster;
+font-weight: normal;
+line-height: normal;
+text-shadow: 1px 1px 0 #000;
+margin: 0;
+padding: 0;
+}
+
+h1 {
+color: rgb(246, 250, 156);
+}
+
+a {
+color: #fff;
+}
+
+/* ====== Header ====== */
+
+header, section, footer {
+background: rgb(140, 0, 26);
+padding: 1em;
+color: #fff;
+
+	@media screen and (min-width: 48em) {
+
+		margin: 0 auto;
+		padding: 2em;
+		width: 90%;
+		max-width: 1024px;
+
+	}
+
+}
+
+$border-properties: 4px rgb(140, 169, 62) solid;
+
+header {
+padding-bottom: 0;
+border: $border-properties;
+border-bottom: 0;
+
+	@media screen and (min-width: 48em) {
+
+		margin-top: 1em;
+		border-radius: 20px 20px 0 0;
+
+	}
+
+	h1 { 
+	position: relative;
+	font-size: 3em;
+	color: #fff;
+	z-index: 2;
+
+		a:link, a:visited, a:hover, a:active {
+		color: #fff;
+		text-decoration: none;
+		}
+
+		b {
+		display: block;
+		font-size: .4em;
+		font-weight: normal;
+		}
+
+	}
+
+	p {
+	text-shadow: 1px 1px 0 #000;
+	}
+
+	.photo {
+	display: block;
+	margin: 1em 0 1em;
+	width: 90%;
+
+		@media screen and (min-width: 48em) {
+
+			float: right;
+			margin-left: 2em;
+			width: 30%;
+
+		}
+
+	}
+
+	img {
+	@include rotate(5deg);
+	border: 14px #fff solid;
+
+		@media screen and (min-width: 48em) {
+
+			@include rotate(10deg);
+			@include box-shadow(black 2px 2px 10px);
+
+		}
+
+	}
+
+}
+
+section {
+border-left: $border-properties;
+border-right: $border-properties;
+
+	> h1 {
+	color: #fff;
+	}
+
+	> aside {
+	margin-top: 2em;
+	}
+
+}
+
+article {
+padding: 1.5em 1em;
+
+	@media screen and (min-width: 48em) {
+
+		padding: 2em;
+
+	}
+
+	.author {
+	font-size: .8em;
+	}
+
+	img {
+	border: 1px #fff solid;
+
+		@media screen and (min-width: 48em) {
+
+			float: right;
+			margin: 0 0 1em 1em;
+
+		}
+
+	}
+
+	aside {
+
+		h2 {
+		margin-bottom: 1em;
+		color: rgb(140, 169, 62);
+		}
+
+	}
+
+	&:nth-child(odd) {
+	background: rgba(255, 255, 255, .1);
+	border-radius: 20px;
+	}
+
+}
+
+footer {
+padding-top: 0;
+border: $border-properties;
+border-top: 0;
+
+	@media screen and (min-width: 48em) {
+
+		margin-bottom: 1em;
+		border-radius: 0 0 20px 20px;
+
+	}
+
+	p {
+	margin: 0;
+	padding: 0;
+	}
+
+	a {
+	text-decoration: none;
+	}
+
+}
+
+.alert {
+padding: 1em;
+border-radius: 6px;
+font-style: italic;
+background-color: #fff;
+color: rgb(140, 0, 26);
+line-height: normal;
+
+	h2 {
+	text-shadow: none;
+	}
+
+	p {
+	text-shadow: none;
+	color: #000;
+	}
+
+	a {
+	color: rgb(140, 0, 26);
+	}
+
+}
+
+.back-to-top {
+text-align: right;
+}
+
+.share {
+margin: 2em 0 -1em;
+padding: 0;
+list-style: none;
+
+	li { 
+	display: inline-block;
+	padding-right: .5em;
+
+		@media screen and (min-width: 48em) {
+
+			padding-right: 1.8em;
+
+		}
+
+		a {
+		display: block;
+		border: 1px #fff solid;
+
+			&:hover, &:focus {
+			border-color: rgb(140, 169, 62);
+			}
+
+		}
+
+	}
+
+}
