@@ -1,0 +1,10 @@
+*.lock
+*.gem
+pkg/
+*.swp
+*~
+_httpdocs/
+.bundle/
+.DS_Store
+.ruby-version
+.sass-cache
