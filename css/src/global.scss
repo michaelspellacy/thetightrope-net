@@ -31,13 +31,15 @@ overflow-y: scroll;
 body {
 background-color: rgb(246,250,156);
 transition: all .5s ease-in-out;
+line-height: 1.6;
 }
 
 a {
+transition: all .1s linear;
 
 	&:link {
 	color: rgb(246, 250, 156);
-	transition: all .1s linear;
+	
 	}
 
 	&:visited {
